@@ -17,33 +17,37 @@ class LogInViewController: UIViewController {
     private let userName = "User"
     private let password = "1234"
     
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "logIn" else { return }
+        guard segue.identifier == "LogIn" else { return }
         let welcomeVC = segue.destination as! WelcomeViewController
         welcomeVC.userName = userNameTextField.text
     }
     
     
-  
     // MARK: - IB Actions
     @IBAction func logInButtonPressed() {
         guard
             userNameTextField.text == userName,
             passwordTextField.text == password
                 else {
-            showAlert(title: "Wrong login or password", message: "Please, enter correct login or password", textField: passwordTextField)
+            showAlert(title: "Wrong login or password",
+                      message: "Please, enter correct login or password",
+                      textField: passwordTextField)
             return
         }
-        performSegue(withIdentifier: "logIn", sender: nil)
+        performSegue(withIdentifier: "LogIn", sender: nil)
     }
     
     @IBAction func forgotUserNamePressed() {
-        showAlert(title: "Hey!", message: "User Name is \(userName)")
+        showAlert(title: "Hey!",
+                  message: "User Name is \(userName)")
     }
     
     @IBAction func forgotPasswordPressed() {
-        showAlert(title: "Hey!", message: "Password is \(password)")
+        showAlert(title: "Hey!",
+                  message: "Password is \(password)")
     }
     
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {
@@ -60,5 +64,25 @@ extension LogInViewController {
         }
         alert.addAction(okAction)
         present(alert, animated: true)
+    }
+}
+
+// MARK: - Text Field Delegate
+extension LogInViewController: UITextFieldDelegate {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+       
+        if textField == userNameTextField {
+            textField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        } else {
+            logInButtonPressed()
+        }
+        return true
     }
 }
