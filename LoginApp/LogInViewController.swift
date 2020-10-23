@@ -18,7 +18,11 @@ class LogInViewController: UIViewController {
     private let password = "1234"
     
     // MARK: - Navigation
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "logIn" else { return }
+        let welcomeVC = segue.destination as! WelcomeViewController
+        welcomeVC.userName = userNameTextField.text
+    }
     
     
   
