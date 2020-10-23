@@ -9,11 +9,28 @@ import UIKit
 
 class LogInViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    // MARK: - IB Outlets
+    @IBOutlet var userNameTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    
+    // MARK: - Private properties
+    private let userName = "User"
+    private let password = "1234"
+    
+    // MARK: - Navigation
+    
+    
+    
+  
+    // MARK: - IB Actions
+    @IBAction func logInButtonPressed() {
     }
-
-
+    
+    @IBAction func forgotUserNamePressed() {
+    }
+    
+    @IBAction func forgotPasswordPressed() {
+    }
+    
 }
 

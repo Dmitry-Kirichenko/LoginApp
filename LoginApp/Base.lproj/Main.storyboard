@@ -31,6 +31,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Log In"/>
                                 <connections>
+                                    <action selector="logInButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="XZd-bA-crQ"/>
                                     <segue destination="ETA-P2-6nh" kind="presentation" identifier="LogIn" id="8x7-oX-rMg"/>
                                 </connections>
                             </button>
@@ -38,11 +39,17 @@
                                 <rect key="frame" x="217" y="382" width="123" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Forgot Password?"/>
+                                <connections>
+                                    <action selector="forgotPasswordPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="5HW-fJ-5Wz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ZS-vX-j4H">
                                 <rect key="frame" x="35" y="381.5" width="133" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Forgot User Name?"/>
+                                <connections>
+                                    <action selector="forgotUserNamePressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="AqV-rS-Z1e"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -63,15 +70,19 @@
                             <constraint firstItem="AJA-Mk-Lev" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yGG-rF-0jA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="9D8-JK-rSO" id="ICz-BA-aGs"/>
+                        <outlet property="userNameTextField" destination="DJU-uJ-JPj" id="jYn-E3-88D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138" y="88"/>
         </scene>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="jRg-tZ-7xX">
             <objects>
-                <viewController id="ETA-P2-6nh" sceneMemberID="viewController">
+                <viewController id="ETA-P2-6nh" customClass="WelcomeViewController" customModule="LoginApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3py-sS-4se">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,6 +123,9 @@
                             <constraint firstItem="ELf-Kx-gdF" firstAttribute="centerX" secondItem="3py-sS-4se" secondAttribute="centerX" id="nTi-jR-IDE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="welcomeLabel" destination="Qo4-lf-BGb" id="Jgi-ia-9Ol"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HvE-o8-rWE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
